@@ -5,3 +5,5 @@ import App from "./components/CalcContainer"
 import "./index.css"
 
 ReactDOM.render(<App />, document.getElementById("root"))
+
+// boiler plate
