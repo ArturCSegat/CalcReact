@@ -1,25 +1,26 @@
-<<<<<<< HEAD
 import React, {useState} from "react"
 import CalcItemGrid from './CalcItemGrid'
 
 const Render = (props) => {
 
-    const [text, setText] = useState("")
+    const [text, setText] = useState("")  // defines the text label state variable
 
-    const handleClick = (button_value) => {
+    //will be called by every button(exept the del one) on click
+    const handleClick = (button_value) => { 
         
+        // handles the logic for the "=" to end the calculation, could be a separate function called on CalcItemGrid.js instead but wouldnt realy make a diffrence
         if (button_value === "=") {
-            props.calculate(text);
-            setText(props.result);
+            props.calculate(text); //reason to my suspicions about the definition of calculate() in CalcContainer.js
+            setText(props.result); // due to the async nature of "props", "result" hasnt had its value updated yet so this is the same as "setText("");" may be fixable with some async await, TODO?
         }
         else {
-            setText((prevText) => prevText.concat(button_value));
+            setText((prevText) => prevText.concat(button_value)); // appends the value of the pressed buttoon the label text
         }
         
        
     }
 
-    const delItem = () => {
+    const delItem = () => { // hadles logic for the del button, requires the definition of a new variable because .slice creates a new object instead of editing the passed one
         let delled_text = text.slice(0, -1);
         setText(delled_text)
         }
@@ -33,40 +34,5 @@ const Render = (props) => {
     )
 }
 
-=======
-import React, {useState} from "react"
-import CalcItemGrid from './CalcItemGrid'
 
-const Render = (props) => {
-
-    const [text, setText] = useState("")
-
-    const handleClick = (button_value) => {
-        
-        if (button_value === "=") {
-            props.calculate(text);
-            setText(props.result);
-        }
-        else {
-            setText((prevText) => prevText.concat(button_value));
-        }
-        
-       
-    }
-
-    const delItem = () => {
-        let delled_text = text.slice(0, -1);
-        setText(delled_text)
-        }
-
-
-    return(
-        <div className="bg-slate 500">
-            <div className="h-32 w-128 border-1 border border-black text-9xl">{text}</div>
-            <CalcItemGrid handleClick={handleClick} delItem={delItem}/>
-        </div>
-    )
-}
-
->>>>>>> f829754bed9ef52b92f14fca7e455a2c446a729f
 export default Render
