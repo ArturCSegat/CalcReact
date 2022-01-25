@@ -22,7 +22,7 @@ const CalcItemGrid = (props) => {
             <CalcItem stl={"text-4xl align-center rounded-full bg-green-400 w-32 h-32"} value="-" handleClick={props.handleClick}/>
             <CalcItem stl={"text-4xl align-center rounded-full bg-green-400 w-32 h-32"} value="/" handleClick={props.handleClick}/>
             <CalcItem stl={"text-4xl align-center rounded-full bg-green-400 w-32 h-32"} value="*" handleClick={props.handleClick}/>
-            <CalcItem stl={"text-4xl align-center rounded-full bg-green-400 w-32 h-32"} value="=" handleClick={props.handleClick}/>
+            <CalcItem stl={"text-4xl align-center rounded-full bg-blue-400 w-32 h-32"} value="=" handleClick={props.handleClick}/>
             <DelItem stl={"text-4xl align-center rounded-full bg-red-400 w-32 h-32"} delItem={props.delItem}/>
         </div>
 

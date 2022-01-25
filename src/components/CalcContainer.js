@@ -36,8 +36,6 @@ const App = () => {
     return (
         <div className=' h-screen flex items-center justify-center flex-col'>
             <Render result={result} calculate={calculate}/>    
-            { <div>{toEvaluate}</div> /* as state is async you cant just update the text label so theese two divs are neede to displaay the result, plus i cant comment in JSX*/} 
-            <div>{result}</div>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import CalcItemGrid from './CalcItemGrid'
 
 const Render = (props) => {
@@ -11,7 +11,6 @@ const Render = (props) => {
         // handles the logic for the "=" to end the calculation, could be a separate function called on CalcItemGrid.js instead but wouldnt realy make a diffrence
         if (button_value === "=") {
             props.calculate(text); //reason to my suspicions about the definition of calculate() in CalcContainer.js
-            setText(props.result); // due to the async nature of "props", "result" hasnt had its value updated yet so this is the same as "setText("");" may be fixable with some async await, TODO?
         }
         else {
             setText((prevText) => prevText.concat(button_value)); // appends the value of the pressed buttoon the label text
@@ -25,7 +24,11 @@ const Render = (props) => {
         setText(delled_text)
         }
 
-
+    // watches an update to props.result that happens in line 13
+    useEffect(() => { 
+        setText(props.result);
+    }, [props.result])
+    
     return(
         <div className="bg-slate 500">
             <div className="h-32 w-128 border-1 border border-black text-9xl">{text}</div>
