@@ -21,7 +21,6 @@ const calculatorReducer = (state, stringToEvaluate) => {
 
         return {  // changes the state to the correct values
             ...state,
-            toEvaluate: stringToEvaluate,
             result: ops[operationUsed](first, second)
         };
 }

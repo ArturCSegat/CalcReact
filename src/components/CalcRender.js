@@ -11,13 +11,20 @@ const Render = (props) => {
         // handles the logic for the "=" to end the calculation, could be a separate function called on CalcItemGrid.js instead but wouldnt realy make a diffrence
         if (button_value === "=") {
             props.calculate(text); //reason to my suspicions about the definition of calculate() in CalcContainer.js
+            
         }
         else {
-            setText((prevText) => prevText.concat(button_value)); // appends the value of the pressed buttoon the label text
+            setText(text + button_value); // appends the value of the pressed buttoon the label text
         }
         
        
-    }
+    }    
+    
+    useEffect(() => { 
+        const res = props.result;
+        setText(res);
+        console.log(props)
+    }, [props.result])
 
     const delItem = () => { // hadles logic for the del button, requires the definition of a new variable because .slice creates a new object instead of editing the passed one
         let delled_text = text.slice(0, -1);
@@ -25,9 +32,7 @@ const Render = (props) => {
         }
 
     // watches an update to props.result that happens in line 13
-    useEffect(() => { 
-        setText(props.result);
-    }, [props.result])
+
     
     return(
         <div className="bg-slate 500">
