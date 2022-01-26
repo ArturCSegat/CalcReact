@@ -33,8 +33,12 @@ const App = () => {
     });
 
     return (
-        <div className=' h-screen flex items-center justify-center flex-col'>
-            <Render result={result} calculate={calculate}/>    
+        <div>
+            <div className=' h-screen flex items-center justify-center flex-col'>
+                <Render result={result} calculate={calculate}/>
+
+            </div>
+            <div ><a className='flex items-start flex-row' href='https://github.com/ArturCSegat/CalcReact'><img className ="w-12 h-12"src="https://pbs.twimg.com/profile_images/1414990564408262661/r6YemvF9_400x400.jpg"></img><br/>My GitHub</a></div>   
         </div>
     )
 }
